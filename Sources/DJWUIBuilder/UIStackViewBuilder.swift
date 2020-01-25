@@ -7,10 +7,10 @@
 //
 import UIKit
 
-class UIStackViewBuilder {
+open class UIStackViewBuilder {
     private let stack:UIStackView
     
-    init() {
+    public init() {
         stack = UIStackView()
         stack.alignment = .fill
         stack.distribution = .fill
@@ -18,23 +18,23 @@ class UIStackViewBuilder {
         stack.spacing = 0
         stack.translatesAutoresizingMaskIntoConstraints = false
     }
-    func alignment(_ alg:UIStackView.Alignment)->Self{
+    public func alignment(_ alg:UIStackView.Alignment)->Self{
         stack.alignment = alg
         return self
     }
-    func distribution(_ dist:UIStackView.Distribution)->Self{
+    public func distribution(_ dist:UIStackView.Distribution)->Self{
         stack.distribution = dist
         return self
     }
-    func axis(_ ax:NSLayoutConstraint.Axis )->Self{
+    open func axis(_ ax:NSLayoutConstraint.Axis )->Self{
         stack.axis = ax
         return self
     }
-    func spacing(_ sp:CGFloat )->Self{
+    public func spacing(_ sp:CGFloat )->Self{
         stack.spacing = sp
         return self
     }
-    func add(_ v:UIView?)->Self{
+    public func add(_ v:UIView?)->Self{
         if let v = v {
             stack.addArrangedSubview(v)
         }else{
@@ -43,10 +43,10 @@ class UIStackViewBuilder {
         return self
     }
     
-    func build()->UIStackView{
+    public func build()->UIStackView{
         return stack
     }
-    func buildAndAdd(on v:UIView)->UIStackView{
+    public func buildAndAdd(on v:UIView)->UIStackView{
         v.addSubview(stack)
         return stack
     }

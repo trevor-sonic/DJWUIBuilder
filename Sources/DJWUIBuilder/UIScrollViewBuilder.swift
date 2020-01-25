@@ -8,30 +8,30 @@
 
 import UIKit
 
-final class UIScrollViewBuilder:UIViewBuilder {
+final public class UIScrollViewBuilder:UIViewBuilder {
     private let scrollView: UIScrollView
 
     // MARK: - Inits
-    override init() {
+    override public init() {
         scrollView = UIScrollView()
         super.init(scrollView)
     }
     
     // MARK: - Public methods
-    func delaysContentTouches(_ bool:Bool)->Self{
+    public func delaysContentTouches(_ bool:Bool)->Self{
         scrollView.delaysContentTouches = bool
         return self
     }
     
     // MARK: - Build and finalize
-    override func add(on v: UIView)->Self{
+    override public func add(on v: UIView)->Self{
         v.addSubview(scrollView)
         return self
     }
-    override func build() -> UIScrollView {
+    override public func build() -> UIScrollView {
         return scrollView
     }
-    override func buildAndAdd(on v: UIView)->UIScrollView {
+    override public func buildAndAdd(on v: UIView)->UIScrollView {
         v.addSubview(scrollView)
         return scrollView
     }

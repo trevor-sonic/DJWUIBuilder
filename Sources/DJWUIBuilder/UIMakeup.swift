@@ -9,7 +9,7 @@
 import UIKit
 
 
-class UIMakeup{
+open  class UIMakeup{
     
     internal let uis:[UIView]
     
@@ -31,11 +31,11 @@ class UIMakeup{
 //        }
 //    }
     
-    init(_ ui:UIView) {
+    public init(_ ui:UIView) {
         self.uis = [ui]
         initViews()
     }
-    init(_ uis:[UIView]) {
+    public init(_ uis:[UIView]) {
         self.uis = uis
         initViews()
     }
@@ -49,14 +49,14 @@ class UIMakeup{
     }
     // MARK: - Base UIView related
     /// Background color
-    func bgColor(_ color:UIColor)->Self{
+    public func bgColor(_ color:UIColor)->Self{
         _ = self.uis.map({ ui in
             ui.backgroundColor = color
         })
         return self
     }
     /// Border thickness and color
-    func border(_ thickness:CGFloat = 1, color:UIColor = .white)->Self{
+    public func border(_ thickness:CGFloat = 1, color:UIColor = .white)->Self{
         _ = self.uis.map({ view in
             view.layer.borderWidth = thickness
             view.layer.borderColor = color.cgColor
@@ -64,28 +64,28 @@ class UIMakeup{
         return self
     }
     /// Border round
-    func round(_ radius:CGFloat = 3)->Self{
+    public func round(_ radius:CGFloat = 3)->Self{
         _ = self.uis.map({ view in
             view.layer.cornerRadius = radius
         })
         return self
     }
     /// Is Hidden?
-    func isHidden(_ hidden:Bool)->Self{
+    public func isHidden(_ hidden:Bool)->Self{
         _ = self.uis.map({ view in
             view.isHidden = hidden
         })
         return self
     }
     /// Alpha set with CGFloat
-    func alpha(_ value:CGFloat)->Self{
+    public func alpha(_ value:CGFloat)->Self{
         _ = self.uis.map({ view in
             view.alpha = value
         })
         return self
     }
     /// Alpha set with Double
-    func alpha(_ value:Double)->Self{
+    public func alpha(_ value:Double)->Self{
         _ = self.uis.map({ view in
             view.alpha = CGFloat(value)
         })
@@ -93,14 +93,14 @@ class UIMakeup{
     }
     // MARK: - UILabel related
     /// UILabel align
-    func align(_ align:NSTextAlignment)->Self{
+    public func align(_ align:NSTextAlignment)->Self{
         _ = self.uis.map({ label in
             (label as? UILabel)?.textAlignment = align
         })
         return self
     }
     /// UILabel color
-    func textColor(with color: UIColor, state:UIControl.State = .normal) -> Self {
+    public func textColor(with color: UIColor, state:UIControl.State = .normal) -> Self {
         _ = self.uis.map({ ui in
             (ui as? UILabel)?.textColor = color
             (ui as? UIButton)?.setTitleColor(color, for: state)
@@ -109,7 +109,7 @@ class UIMakeup{
         return self
     }
     /// Uppercase labels
-    func uppercased() -> Self {
+    public func uppercased() -> Self {
         _ = self.uis.map({ ui in
             (ui as? UILabel)?.text =  (ui as? UILabel)?.text?.uppercased()
         })
@@ -118,7 +118,7 @@ class UIMakeup{
     
     // MARK: - UIButton related
     /// UIButton tint color
-    func tint(_ color:UIColor)->Self{
+    public func tint(_ color:UIColor)->Self{
         _ = self.uis.map({ ui in
             (ui as? UIButton)?.tintColor = color
             
@@ -127,7 +127,7 @@ class UIMakeup{
     }
     
     /// UIButton tint color
-    func font(_ font:UIFont)->Self{
+    open func font(_ font:UIFont)->Self{
         _ = self.uis.map({ ui in
             
             if let button = ui as? UIButton{
@@ -139,7 +139,7 @@ class UIMakeup{
         })
         return self
     }
-    func img(_ img:UIImage, state: UIControl.State = .normal)->Self{
+    public func img(_ img:UIImage, state: UIControl.State = .normal)->Self{
         _ = self.uis.map({ btn in
             
             if let button = btn as? UIButton{
@@ -148,7 +148,7 @@ class UIMakeup{
         })
         return self
     }
-    func bgImage(_ img:UIImage, state: UIControl.State = .normal)->Self{
+    public func bgImage(_ img:UIImage, state: UIControl.State = .normal)->Self{
         _ = self.uis.map({ btn in
             
             if let button = btn as? UIButton{

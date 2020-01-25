@@ -8,10 +8,10 @@
 
 import UIKit
 
-final class UIFontBuilder {
+final public class UIFontBuilder {
     internal var font: UIFont
     
-    enum Kind:Int {
+    public enum Kind:Int {
         
         case sRegular,  mRegular, lRegular, xlRegular, xxlRegular
         case sBold,  mBold, lBold, xlBold, xxlBold
@@ -46,10 +46,10 @@ final class UIFontBuilder {
     }
     
     // MARK: - Inits
-    init(kind:Kind = .mRegular){
+    public init(kind:Kind = .mRegular){
         font = UIFont.systemFont(ofSize: kind.size, weight: kind.weight)
     }
-    func build()->UIFont{
+    public func build()->UIFont{
         return font
     }
     

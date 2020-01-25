@@ -1,21 +1,18 @@
 //
-//  UILabelBuilder.swift
-//  Stage2
+//  File.swift
+//  
 //
-//  Created by dejaWorks on 13/10/2018.
-//  Copyright © 2018 dejaWorks. All rights reserved.
+//  Created by dejaWorks on 25/01/2020.
 //
 
 import UIKit
 
-
-
-final public class UILabelBuilder:UIViewBuilder {
-    private var label: UILabel
+final public class LabelWithInsetBuilder:UIViewBuilder {
+    private var label: LabelWithInset
     
     // MARK: - Inits
     public init(kind:UIFontBuilder.Kind = .mRegular, text:String = String()){
-        label = UILabel()
+        label = LabelWithInset()
         label.text = text
         label.font = UIFontBuilder(kind: kind).build()
         label.adjustsFontSizeToFitWidth = true
@@ -25,16 +22,19 @@ final public class UILabelBuilder:UIViewBuilder {
         super.init(label)
     }
     // MARK: - Public methods
+    public func insets (_ insets:UIEdgeInsets)->Self{
+        label.insets = insets
+        return self
+    }
     public func kind(_ kind:UIFontBuilder.Kind)->Self{
-        label.font = UIFontBuilder(kind: kind).build() //UIFont.systemFont(ofSize: kind.size, weight: kind.weight)
+        label.font = UIFontBuilder(kind: kind).build()
         return self
     }
     public func fontSize(of size: CGFloat) -> Self {
         label.font = label.font.withSize(size)
         return self
     }
-    public func fontWeight(of weight: UIFont.Weight) -> Self {
-        let font = UIFont.systemFont(ofSize: label.font.pointSize, weight: weight)
+    override public func font(_ font: UIFont) -> Self {
         label.font = font
         return self
     }
@@ -42,12 +42,11 @@ final public class UILabelBuilder:UIViewBuilder {
         label.numberOfLines = lines
         return self
     }
-    override public func build() -> UILabel {
+    override public func build() -> LabelWithInset {
         return label
     }
-    override public func buildAndAdd(on v:UIView) -> UILabel {
+    override public func buildAndAdd(on v:UIView) -> LabelWithInset {
         v.addSubview(label)
         return label
     }
 }
-
