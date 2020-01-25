@@ -1,3 +1,3 @@
 # DJWUIBuilder
 
-A description of this package.
+DejaWorks Swift UIBuilder. SPM.
