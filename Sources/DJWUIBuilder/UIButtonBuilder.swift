@@ -58,6 +58,29 @@ final public class UIButtonBuilder:UIViewBuilder {
         button.contentEdgeInsets = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
         return self
     }
+    
+    // MARK: - Bindable
+    public var onTap:(()->Void)?// = {}
+    var protectButtonAbuse = false
+    public func bind(_ callback:@escaping (()->Void))->Self{
+        onTap = callback
+        button.addTarget(self, action: #selector(buttonTapped), for: UIControl.Event.touchUpInside)
+        return self
+    }
+    @objc func buttonTapped(_ sender:UIButton){
+        onTap?()
+        preventButtonAbuse()
+    }
+    public func preventButtonAbuse(){
+        guard protectButtonAbuse else {return}
+        
+        button.isEnabled = false
+        //// Latency for button abuse
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.2 ) {
+            //print("Latency preventButtonAbuse")
+            self.button.isEnabled = true
+        }
+    }
 
     // MARK: - Build and finalize
     override public func build() -> UIButton {
