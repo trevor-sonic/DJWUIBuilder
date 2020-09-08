@@ -9,8 +9,8 @@
 
 import UIKit
 
-final public class UIButtonBuilder:UIViewBuilder {
-    private let button: UIButton
+open class UIButtonBuilder:UIViewBuilder {
+    internal var button: UIButton
 
     // MARK: - Inits
     public init(title: String, type:UIButton.ButtonType = .system) {

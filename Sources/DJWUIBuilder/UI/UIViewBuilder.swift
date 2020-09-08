@@ -20,6 +20,7 @@ open class UIViewBuilder:UIMakeup {
     /// Don't init with this. It is for only for UIBuilder use.
     override public init(_ ui: UIView) {
         view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         super.init(ui)
     }
 

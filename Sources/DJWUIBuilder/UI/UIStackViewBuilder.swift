@@ -34,6 +34,11 @@ open class UIStackViewBuilder {
         stack.spacing = sp
         return self
     }
+    public func insets(_ inset: UIEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))->Self{
+        stack.layoutMargins = inset
+        stack.isLayoutMarginsRelativeArrangement = true
+        return self
+    }
     public func add(_ v:UIView?)->Self{
         if let v = v {
             stack.addArrangedSubview(v)

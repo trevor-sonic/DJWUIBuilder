@@ -22,6 +22,7 @@ final public class UILabelBuilder:UIViewBuilder {
         label.minimumScaleFactor = 0.75
         label.baselineAdjustment = UIBaselineAdjustment.alignCenters
         label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
         super.init(label)
     }
     // MARK: - Public methods

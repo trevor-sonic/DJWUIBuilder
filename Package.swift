@@ -18,14 +18,29 @@ let package = Package(
     ],
     
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+        .package(path: "../DJWBuilderNS/"),
+        .package(path: "../DJWBindableNS/"),
+        .package(path: "../DJWCommon/"),
+        
+        ///public
+        .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.0.0"),
+        
     ],
     
     targets: [
         .target(
             name: "DJWUIBuilder",
-            dependencies: []),
+            
+            dependencies: [
+                "DJWBuilderNS",
+                "DJWBindableNS",
+                "DJWCommon",
+                
+                ///public
+                "SnapKit",
+            ]),
+        
+        
         .testTarget(
             name: "DJWUIBuilderTests",
             dependencies: ["DJWUIBuilder"]),

@@ -121,7 +121,7 @@ open  class UIMakeup{
     public func tint(_ color:UIColor)->Self{
         _ = self.uis.map({ ui in
             (ui as? UIButton)?.tintColor = color
-            
+            (ui as? UIImageView)?.tintColor = color
         })
         return self
     }
