@@ -19,7 +19,7 @@ let package = Package(
     
     dependencies: [
         //.package(path: "../DJWBuilderNS/"),
-        //.package(url: "https://gitlab.com/trevorsonic/DJWCommon.git", from: "1.0.3"),
+        .package(url: "https://gitlab.com/trevorsonic/DJWCommon.git", from: "1.0.5"),
         .package(url: "https://gitlab.com/trevorsonic/DJWBuilderNS.git", from: "1.0.0"),
         .package(url: "https://gitlab.com/trevorsonic/DJWBindableNS.git", from: "1.0.0"),
         
@@ -36,7 +36,7 @@ let package = Package(
             name: "DJWUIBuilder",
             
             dependencies: [
-          //      "DJWCommon",
+                "DJWCommon",
                 "DJWBuilderNS",
                 "DJWBindableNS",
                 

@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "DJWCommon",
+        "repositoryURL": "https://gitlab.com/trevorsonic/DJWCommon.git",
+        "state": {
+          "branch": null,
+          "revision": "e9b9cb35abe30dc306c25aba696a24005bcffec6",
+          "version": "1.0.3"
+        }
+      },
+      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
         "state": {
