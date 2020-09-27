@@ -36,15 +36,15 @@ public extension Builder{
             button.tag = n
             return self
         }
-        public func bind(_ callback:@escaping ( (UIButton)->Void) )->Self{
+        public func bind(_ callback:@escaping ClosureWith<UIButton> )->Self{
             button.bind(callback)
             return self
         }
-        public func bindUp(_ callback:@escaping ( (UIButton)->Void) )->Self{
+        public func bindUp(_ callback:@escaping ClosureWith<UIButton> )->Self{
             button.bindUp(callback)
             return self
         }
-        public func bindDown(_ callback:@escaping ( (UIButton)->Void) )->Self{
+        public func bindDown(_ callback:@escaping ClosureWith<UIButton> )->Self{
             button.bindDown(callback)
             return self
         }
@@ -90,8 +90,8 @@ public extension Builder{
 public extension Bindable{
     class Button:UIButton{
         open var onTap:ClosureWith<UIButton> = { _ in}
-        public var onDown:ClosureWith<UIButton> = { _ in}
-        public var onUp:ClosureWith<UIButton> = { _ in}
+        open var onDown:ClosureWith<UIButton> = { _ in}
+        open var onUp:ClosureWith<UIButton> = { _ in}
         var protectButtonAbuse = false
         
         open func bind(_ callback:@escaping ClosureWith<UIButton>){
