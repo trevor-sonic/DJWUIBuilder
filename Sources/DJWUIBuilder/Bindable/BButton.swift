@@ -109,7 +109,7 @@ public extension Bindable{
             addTarget(self, action: #selector(buttonUp), for: UIControl.Event.touchUpOutside)
         }
         
-        @objc func buttonTapped(_ sender:Bindable.Button){
+        @objc public func buttonTapped(_ sender:Bindable.Button){
             onTap(sender)
             preventButtonAbuse()
         }
