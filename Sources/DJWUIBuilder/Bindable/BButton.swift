@@ -93,17 +93,18 @@ public extension Bindable{
         public var onDown:ClosureWith<UIButton> = { _ in}
         public var onUp:ClosureWith<UIButton> = { _ in}
         var protectButtonAbuse = false
-        open func bind(_ callback:@escaping (UIButton)->Void){
+        
+        open func bind(_ callback:@escaping ClosureWith<UIButton>){
             onTap = callback
             addTarget(self, action: #selector(buttonTapped), for: UIControl.Event.touchUpInside)
         }
         
-        public func bindDown(_ callback:@escaping (UIButton)->Void){
+        public func bindDown(_ callback:@escaping ClosureWith<UIButton>){
             onDown = callback
             addTarget(self, action: #selector(buttonDown), for: UIControl.Event.touchDown)
         }
         
-        public func bindUp(_ callback:@escaping (UIButton)->Void){
+        public func bindUp(_ callback:@escaping ClosureWith<UIButton>){
             onUp = callback
             addTarget(self, action: #selector(buttonUp), for: UIControl.Event.touchUpInside)
             addTarget(self, action: #selector(buttonUp), for: UIControl.Event.touchUpOutside)
