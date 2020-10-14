@@ -109,7 +109,7 @@ public extension Bindable{
             addTarget(self, action: #selector(buttonUp), for: UIControl.Event.touchUpInside)
             addTarget(self, action: #selector(buttonUp), for: UIControl.Event.touchUpOutside)
             addTarget(self, action: #selector(buttonUp), for: UIControl.Event.touchDragOutside)
-            addTarget(self, action: #selector(buttonUp), for: UIControl.Event.touchCancel)
+            addTarget(self, action: #selector(buttonUp), for: UIControl.Event.touchDragExit)
             
         }
         
