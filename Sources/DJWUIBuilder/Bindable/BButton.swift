@@ -108,6 +108,8 @@ public extension Bindable{
             onUp = callback
             addTarget(self, action: #selector(buttonUp), for: UIControl.Event.touchUpInside)
             addTarget(self, action: #selector(buttonUp), for: UIControl.Event.touchUpOutside)
+            addTarget(self, action: #selector(buttonUp), for: UIControl.Event.touchDragOutside)
+            
         }
         
         @objc public func buttonTapped(_ sender:Bindable.Button){
