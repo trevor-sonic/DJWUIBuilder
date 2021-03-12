@@ -43,6 +43,19 @@ final public class UILabelBuilder:UIViewBuilder {
         label.numberOfLines = lines
         return self
     }
+    
+    public func shadow(color:UIColor = .black,
+                       size:CGFloat = 0.5,
+                       radius:CGFloat = 0.5,
+                       opacity:CGFloat = 0.5)->UILabel{
+        label.layer.shadowColor = color.cgColor
+        label.layer.shadowRadius = 0.5
+        label.layer.shadowOpacity = 0.5
+        label.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        label.layer.masksToBounds = false
+
+    }
+    
     override public func build() -> UILabel {
         return label
     }
