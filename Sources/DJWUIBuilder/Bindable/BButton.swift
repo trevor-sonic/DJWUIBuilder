@@ -13,11 +13,11 @@ import DJWBindableNS
 public extension Builder{
     class BButton:UIViewBuilder{
         
-        private let button: Bindable.Button
+        private let button: DBindable.Button
         
         // MARK: - Inits
         public init(title: String, type:UIButton.ButtonType = .system) {
-            button = Bindable.Button(type: type)
+            button = DBindable.Button(type: type)
             button.setTitle(title, for: .normal)
             super.init(button)
         }
@@ -75,10 +75,10 @@ public extension Builder{
         }
         
         // MARK: - Build and finalize
-        override public  func build() -> Bindable.Button {
+        override public  func build() -> DBindable.Button {
             return button
         }
-        override public func buildAndAdd(on view: UIView)->Bindable.Button {
+        override public func buildAndAdd(on view: UIView)->DBindable.Button {
             view.addSubview(button)
             return button
         }
@@ -111,15 +111,15 @@ public extension Bindable{
             
         }
         
-        @objc public func buttonTapped(_ sender:Bindable.Button){
+        @objc public func buttonTapped(_ sender:DBindable.Button){
             onTap(sender)
             preventButtonAbuse()
         }
-        @objc func buttonDown(_ sender:Bindable.Button){
+        @objc func buttonDown(_ sender:DBindable.Button){
             onDown(sender)
             preventButtonAbuse()
         }
-        @objc func buttonUp(_ sender:Bindable.Button){
+        @objc func buttonUp(_ sender:DBindable.Button){
             onUp(sender)
             preventButtonAbuse()
         }
