@@ -21,7 +21,7 @@ let package = Package(
         ///private
         .package(url: "https://github.com/trevor-sonic/DJWCommon.git", from: "1.0.0"),
         .package(url: "https://github.com/trevor-sonic/DJWBuilderNS.git", from: "1.0.0"),
-        .package(url: "https://github.com/trevor-sonic/DJWBindableNS.git", from: "2.0.0"), 
+        .package(url: "https://github.com/trevor-sonic/DJWBindableNS.git", from: "2.0.0"),    
  
         ///public
         .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.0.0"),
