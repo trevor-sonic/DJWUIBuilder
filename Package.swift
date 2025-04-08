@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "DJWUIBuilder",
     platforms: [
-        .iOS(.v10),
+        .iOS(.v13),
         .macOS(.v10_12),
         .tvOS(.v10)
     ],
