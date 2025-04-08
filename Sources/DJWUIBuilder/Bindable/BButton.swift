@@ -85,7 +85,7 @@ public extension Builder{
     }
 }
 
-public extension Bindable{
+public extension DBindable{
     class Button:UIButton{
         open var onTap:ClosureWith<UIButton> = { _ in}
         open var onDown:ClosureWith<UIButton> = { _ in}
